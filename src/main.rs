@@ -8,29 +8,19 @@ pub struct UserCreatedEventMessage {
 }
 
 pub struct UserCreatedHandler;
-
 impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
-    fn handle(&self, message: Box<UserCreatedEventMessage>) -> Result<(), HandleError> {
-        println!("Message received on handler 1: {:?}", message);
-        Ok(())
-    }
-    // Tambahan wajib agar tidak error
-    fn get_handler_action(&self) -> String {
-        todo!()
-    }
+    fn handle(&self, _m: Box<UserCreatedEventMessage>) -> Result<(), HandleError> { Ok(()) }
+    fn get_handler_action(&self) -> String { "".to_string() }
 }
 
 fn main() {
-    let mut p = CrosstownBus::new_queue_publisher("amqp://guest:guest@localhost:5672".to_owned()).unwrap();
-    
-    _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
-        user_id: "1".to_owned(), user_name: "2406435894-Amir".to_owned() });
-    _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
-        user_id: "2".to_owned(), user_name: "2406435894-Budi".to_owned() });
-    _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
-        user_id: "3".to_owned(), user_name: "2406435894-Cica".to_owned() });
-    _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
-        user_id: "4".to_owned(), user_name: "2406435894-Dira".to_owned() });
-    _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
-        user_id: "5".to_owned(), user_name: "2406435894-Emir".to_owned() });
+    let mut p = CrosstownBus::new_queue_publisher("amqp://guest:guest@127.0.0.1:5672".to_owned()).unwrap();
+    let names = vec!["Amir", "Budi", "Cica", "Dira", "Emir"];
+    for (i, name) in names.iter().enumerate() {
+        _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 
+            user_id: (i + 1).to_string(), 
+            user_name: format!("2406435894-{}", name) 
+        });
+    }
+    println!("Selesai ngirim bang!");
 }

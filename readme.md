@@ -7,3 +7,6 @@ b. The url of: “amqp://guest:guest@localhost:5672” is the same as in the sub
 Jawab: Artinya Publisher dan Subscriber menggunakan protokol AMQP dan terhubung ke alamat server yang sama (RabbitMQ) agar pesan dari Publisher bisa sampai ke Subscriber.
 
 ![RabbitMQ](rabbitmq.png)
+![alt text](rabbitmq2.png)
+![alt text](image.png)
+![alt text](image-1.png)

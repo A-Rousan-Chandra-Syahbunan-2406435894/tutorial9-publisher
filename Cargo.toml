@@ -1,5 +1,5 @@
 [package]
-name = "publisher"
+name = "publisher" 
 version = "0.1.0"
 edition = "2021"
 
@@ -9,3 +9,13 @@ futures = "0.3"
 borsh = "0.9.3"
 borsh-derive = "0.9.1"
 tokio = {version="1.21.2", features=["full"]}
+
+
+url = "=2.5.0"
+idna = "=0.5.0"
+native-tls = "=0.2.11"
+pest = "=2.7.0"
+pest_meta = "=2.7.0"
+pest_generator = "=2.7.0"
+pest_derive = "=2.7.0"
+indexmap = { version = "=1.9.3", features = ["std"] }
