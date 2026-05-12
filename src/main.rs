@@ -14,7 +14,7 @@ impl MessageHandler<UserCreatedEventMessage> for UserCreatedHandler {
 }
 
 fn main() {
-    let mut p = CrosstownBus::new_queue_publisher("amqp://guest:guest@127.0.0.1:5672".to_owned()).unwrap();
+    let mut p = CrosstownBus::new_queue_publisher("amqps://ojzbiupq:BQhrSm_-y4CCijnHLuB9gyOzzyuZPgXp@armadillo.rmq.cloudamqp.com/ojzbiupq".to_owned()).unwrap();
     let names = vec!["Amir", "Budi", "Cica", "Dira", "Emir"];
     for (i, name) in names.iter().enumerate() {
         _ = p.publish_event("user_created".to_owned(), UserCreatedEventMessage { 

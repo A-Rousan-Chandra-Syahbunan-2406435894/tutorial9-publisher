@@ -10,3 +10,4 @@ Jawab: Artinya Publisher dan Subscriber menggunakan protokol AMQP dan terhubung 
 ![alt text](rabbitmq2.png)
 ![alt text](image.png)
 ![alt text](image-1.png)
+![alt text](image-2.png)
