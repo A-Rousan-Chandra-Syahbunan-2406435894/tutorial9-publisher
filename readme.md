@@ -5,3 +5,5 @@ Jawab: Publisher mengirim 5 data (sesuai jumlah baris p.publish_event di main.rs
 b. The url of: “amqp://guest:guest@localhost:5672” is the same as in the subscriber program, what does it mean?
 
 Jawab: Artinya Publisher dan Subscriber menggunakan protokol AMQP dan terhubung ke alamat server yang sama (RabbitMQ) agar pesan dari Publisher bisa sampai ke Subscriber.
+
+![RabbitMQ](rabbitmq.png)
